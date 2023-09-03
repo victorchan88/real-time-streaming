@@ -15,7 +15,7 @@ def fetch_playlist_items_page(googleApiKey, playlistId, pageToken=None):
                             })
     payload = json.loads(response.text)
 
-    logging.debug("GOT %s", payload)
+    # logging.debug("GOT %s", payload)
 
     return payload
 
@@ -29,7 +29,7 @@ def fetch_videos_page(googleApiKey, videoId, pageToken=None):
                             })
     payload = json.loads(response.text)
 
-    logging.debug("GOT %s", payload)
+    # logging.debug("GOT %s", payload)
 
     return payload
 
@@ -58,6 +58,15 @@ def fetch_playlist_items(googleApiKey, playlistId, pageToken=None):
     # If there's another page
     if nextPageToken:
         yield from fetch_playlist_items(googleApiKey, playlistId, nextPageToken)
+
+def summarizeVideo(video):
+    return {
+        "videoId": video["id"],
+        "title": video["snippet"]["title"],
+        "views": video["statistics"].get("viewCount",0),
+        "likes": video["statistics"].get("likeCount",0),
+        "comments": video["statistics"].get("commentCount",0)
+    }
 
 
 def main():
