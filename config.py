@@ -1,4 +1,15 @@
 config = {
-    "GOOGLE_API_KEY":"AIzaSyB_6XV7w-7SWEHxIIeuC_5htjZd4owaT-g",
-    "YOUTUBE_PLAYLIST_ID":"PLoISu6EAcn3AQQnURLbOkch3mloBBijQd"
+    "GOOGLE_API_KEY":"",
+    "YOUTUBE_PLAYLIST_ID":"",
+    "KAFKA": {
+        "bootstrap.servers": "",
+        "security.protocol": "",
+        "sasl.mechanism": "",
+        "sasl.username": "",
+        "sasl.password": "",
+    },
+    "SCHEMA_REGISTRY": {
+        "url": "",
+        "basic.auth.user.info": ""
+    }
 }
